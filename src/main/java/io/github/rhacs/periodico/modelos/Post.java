@@ -1,6 +1,8 @@
 package io.github.rhacs.periodico.modelos;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -49,6 +52,12 @@ public class Post {
     @JoinColumn(name = Constantes.USUARIO_ID, nullable = false)
     private Usuario usuario;
 
+    /**
+     * Listado de {@link Comentario}s asociados al {@link Post}
+     */
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "post")
+    private Set<Comentario> comentarios;
+
     // Constructores
     // -----------------------------------------------------------------------------------------
 
@@ -56,22 +65,24 @@ public class Post {
      * Crea una nueva instancia vacía de la entidad {@link Post}
      */
     public Post() {
-
+        comentarios = new HashSet<>();
     }
 
     /**
      * Crea una nueva instancia de la entidad {@link Post}
      * 
-     * @param id      identificador numérico
-     * @param title   título
-     * @param body    cuerpo
-     * @param usuario el {@link Usuario} autor
+     * @param id          identificador numérico
+     * @param title       título
+     * @param body        cuerpo
+     * @param usuario     el {@link Usuario} autor
+     * @param comentarios litado de {@link Comentario}s asociados
      */
-    public Post(Long id, String title, String body, Usuario usuario) {
+    public Post(Long id, String title, String body, Usuario usuario, Set<Comentario> comentarios) {
         this.id = id;
         this.title = title;
         this.body = body;
         this.usuario = usuario;
+        this.comentarios = comentarios;
     }
 
     // Getters
@@ -105,6 +116,13 @@ public class Post {
         return usuario;
     }
 
+    /**
+     * @return el listado de {@link Comentario}s asociados
+     */
+    public Set<Comentario> getComentarios() {
+        return comentarios;
+    }
+
     // Setters
     // -----------------------------------------------------------------------------------------
 
@@ -136,6 +154,13 @@ public class Post {
         this.usuario = usuario;
     }
 
+    /**
+     * @param comentarios el listado de {@link Comentario}s a establecer
+     */
+    public void setComentarios(Set<Comentario> comentarios) {
+        this.comentarios = comentarios;
+    }
+
     // Herencias (Object)
     // -----------------------------------------------------------------------------------------
 
@@ -162,7 +187,8 @@ public class Post {
 
     @Override
     public String toString() {
-        return String.format("Post [id=%s, title=%s, body=%s, usuario=%s]", id, title, body, usuario);
+        return String.format("Post [id=%s, title=%s, body=%s, usuario=%s, comentarios=%s]", id, title, body, usuario,
+                comentarios);
     }
 
 }
