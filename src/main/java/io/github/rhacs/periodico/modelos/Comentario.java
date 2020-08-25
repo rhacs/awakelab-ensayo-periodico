@@ -187,7 +187,7 @@ public class Comentario {
 
     @Override
     public String toString() {
-        return String.format("Comentario [id=%s, name=%s, email=%s, body=%s, post=%s]", id, name, email, body, post);
+        return String.format("Comentario [id=%s, name=%s, email=%s, body=%s]", id, name, email, body);
     }
 
 }
