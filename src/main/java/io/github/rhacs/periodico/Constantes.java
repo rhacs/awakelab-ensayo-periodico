@@ -38,6 +38,20 @@ public class Constantes {
      */
     public static final String COMENTARIO_ID = "id";
 
+    // APIS
+    // -----------------------------------------------------------------------------------------
+
+    /**
+     * Dirección URL de la API que contiene la información de los {@link Post}s
+     */
+    public static final String API_POSTS = "https://jsonplaceholder.typicode.com/posts";
+
+    /**
+     * Dirección URL de la API que contiene la información de los
+     * {@link Comentario}s
+     */
+    public static final String API_COMENTARIOS = "https://jsonplaceholder.typicode.com/comments";
+
     // Constructores
     // -----------------------------------------------------------------------------------------
 
