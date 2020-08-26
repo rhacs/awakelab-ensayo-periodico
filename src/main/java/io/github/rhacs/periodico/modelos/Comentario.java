@@ -55,7 +55,7 @@ public class Comentario {
      * {@link Post} al que pertenece el {@link Comentario}
      */
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = Constantes.POST_ID, nullable = false)
+    @JoinColumn(name = "postId", nullable = false)
     private Post post;
 
     // Constructores
