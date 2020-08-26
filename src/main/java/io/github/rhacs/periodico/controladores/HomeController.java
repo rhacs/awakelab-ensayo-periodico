@@ -193,7 +193,7 @@ public class HomeController {
         }
 
         // Redireccionar
-        return "redirect:/?noid=" + id;
+        return "redirect:/posts?noid=" + id;
     }
 
 }
