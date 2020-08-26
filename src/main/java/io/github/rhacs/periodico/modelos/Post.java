@@ -49,7 +49,7 @@ public class Post {
      * {@link Usuario} autor del {@link Post}
      */
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = Constantes.USUARIO_ID, nullable = false)
+    @JoinColumn(name = "userId", nullable = false)
     private Usuario usuario;
 
     /**
