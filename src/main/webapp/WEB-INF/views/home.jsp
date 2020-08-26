@@ -21,7 +21,7 @@
         <!-- Navegación -->
         <nav class="navbar navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="${pageContext.request.contextPath}">Periódico Electrónico</a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/posts">Periódico Electrónico</a>
             </div>
         </nav>
         <!-- /Navegación -->
@@ -30,8 +30,6 @@
         <div class="container my-5">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="border-bottom pb-2 mb-4">Listado de Posts</h1>
-
                     <core:if test="${not empty param.noid}">
                         <div class="alert alert-warning">No existe el registro con el identificador numérico <strong>${param.noid}</strong></div>
                     </core:if>
@@ -78,5 +76,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" integrity="sha512-ubuT8Z88WxezgSqf3RLuNi5lmjstiJcyezx34yIU2gAHonIi27Na7atqzUZCOoY4CExaoFumzOsFQ2Ch+I/HCw==" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
+
+        <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/script.js"></script>
     </body>
 </html>
