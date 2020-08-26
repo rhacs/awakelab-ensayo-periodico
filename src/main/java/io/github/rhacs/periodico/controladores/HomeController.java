@@ -145,9 +145,11 @@ public class HomeController {
      */
     @GetMapping
     public String cargarDatos() {
+        // Cargar datos
         cargarPosts();
         cargarComentarios();
 
+        // Redireccionar
         return "redirect:/posts";
     }
 
